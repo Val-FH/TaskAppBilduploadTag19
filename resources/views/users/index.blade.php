@@ -1,5 +1,5 @@
 <x-layout title="Userseite">
-    <p>Tabelle User mit Foto</p>
+    <p>Tabelle User </p>
     <table>
         <tr>
         <th>Name</th>
@@ -14,9 +14,9 @@
             <td>{{$user->email}}</td>
             <td>
                 @if ($user->imagePath)
-                    {{$user->imagePath}}   
+                    <img src="{{ $user->imagePath }}" alt="{{$user->imageAlt}}" style="width: 100px">   
                 @else
-                <a href="/users/create{{ $user->id }}" >Anlegen</a>  
+              <a href="{{ route('users.edit', ['user' => $user->id]) }}">Anlegen</a>  
                 @endif
             </td>
            

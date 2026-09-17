@@ -2,9 +2,10 @@
        
     <h1>Bildupload</h1>
      <div class="mb-10">     <!--wohin geht es              wichtig weil bildupload muss enctype drin stehen  -->
-    <form method="POST" action="/users" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('users.update', $user) }}" enctype="multipart/form-data">
         @csrf <!-- token für formular-->
-         
+        @method('PUT')
+         <input type="hidden" name="user" value="{{ $user->id }}">
      
         <label for="imageAlt" class="floating-label">Alternativ Text</label>
         <input type="text" name="imageAlt" id="imageAlt" class="input input-neutral">

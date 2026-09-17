@@ -47,11 +47,14 @@ Route::middleware('auth')->group(function() {
         return back();
     });
     // Userbilder anzeigen 
-   Route::get('/users', [UserImageController::class, 'index']);
+    Route::get('/users', [UserImageController::class, 'index']);
+    Route::get('/users/{user}', [UserImageController::class, 'show'])->name('users.show');
     // Userbilder  anlegen 
-    Route::get('/users/create', [UserImageController::class, 'create']);
+    Route::get('/users/edit/{user}', [UserImageController::class, 'edit'])->name('users.edit');
     //Userbilder  speichern
-    Route::post('/users', [UserImageController::class, 'store']);
+    Route::put('/users/{user}', [UserImageController::class, 'update'])->name('users.update');
+    
+   
 
 });
 
@@ -67,12 +70,6 @@ Route::middleware('guest')->group(function() {
     Route::post('/login', [SessionController::class, 'store']);
 });
 
-//Admin seiten spaß
-Route::get('/admin', function () {
-    // variante Gate::authorized('view-admin')
-    return view('admin');
-    // can zeigt wer zugriff auf die seite hat
-})->name('admin')->can('view-admin');
 
 //datenbank tests
 Route::get('/dbtest', function(){

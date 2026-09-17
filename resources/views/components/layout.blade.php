@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html lang="de" data-theme="valentine">
 <head>
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }} - TaskApp</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-base-200 text-base-content antialiased">
     <x-nav />
