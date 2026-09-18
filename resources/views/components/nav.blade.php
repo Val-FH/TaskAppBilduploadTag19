@@ -19,12 +19,12 @@
                 class="{{ request()->routeIs('dashboard') ? 'font-medium' : 'opacity-80 hover:opacity-100' }}">
                 Hi, {{ auth()->user()->name }}
                </a>
-               <a href="/users">Users</a>
+               <a href="/users" class="btn btn-soft btn-primary">Benutzer Übersicht</a>
                
 
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-soft btn-primary">
+                    <button type="submit" class="btn btn-soft btn-secondary">
                         Log Out
                     </button>
                 </form>

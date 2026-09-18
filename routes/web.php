@@ -48,13 +48,18 @@ Route::middleware('auth')->group(function() {
     });
     // Userbilder anzeigen 
     Route::get('/users', [UserImageController::class, 'index']);
+    // user einzeln anzeigen 
     Route::get('/users/{user}', [UserImageController::class, 'show'])->name('users.show');
-    // Userbilder  anlegen 
+    // Userbilder  anlegen
+    Route::get('/users/create/{user}', [UserImageController::class, 'create'])->name('users.create');
+    // Userbilder  speichern
+    Route::post('/users/create/{user}', [UserImageController::class, 'store'])->name('users.store');
+    // Userbilder  ändern
     Route::get('/users/edit/{user}', [UserImageController::class, 'edit'])->name('users.edit');
-    //Userbilder  speichern
+    //Userbilder  änderung speichern
     Route::put('/users/{user}', [UserImageController::class, 'update'])->name('users.update');
-    
-   
+    //Userbilder löschen
+    Route::delete('/users/{user}', [UserImageController::class, 'destroy'])->name('users.destroy');
 
 });
 
